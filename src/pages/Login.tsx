@@ -25,7 +25,7 @@ const Login: React.FC = () => {
   const [presentToast] = useIonToast();
 
   const doLogin = () => {
-    if (email === 'admin@example.com' && password === 'admin123') {
+    if (email === '20221936@nbsc.edu.ph' && password === '20221936') {
       presentToast({
         message: 'Login Successful!',
         duration: 2000,
@@ -48,7 +48,7 @@ const Login: React.FC = () => {
   };
 
   const goToRegister = () => {
-    navigation.push('/register', 'forward', 'replace');
+    navigation.push('/Register', 'forward', 'replace');
   };
 
   return (
@@ -105,7 +105,7 @@ const Login: React.FC = () => {
               </IonCol>
             </IonRow>
           </IonGrid>
-          
+
         </div>
       </IonContent>
     </IonPage>
