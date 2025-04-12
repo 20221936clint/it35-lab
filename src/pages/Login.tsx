@@ -25,7 +25,7 @@ const Login: React.FC = () => {
   const [presentToast] = useIonToast();
 
   const doLogin = () => {
-    if (email === '20221936@nbsc.edu.ph' && password === '20221936') {
+    if (email === 'admin@example.com' && password === 'admin123') {
       presentToast({
         message: 'Login Successful!',
         duration: 2000,
@@ -45,6 +45,10 @@ const Login: React.FC = () => {
         color: 'danger'
       });
     }
+  };
+
+  const goToRegister = () => {
+    navigation.push('/register', 'forward', 'replace');
   };
 
   return (
@@ -85,10 +89,23 @@ const Login: React.FC = () => {
                   <IonInputPasswordToggle slot="end" />
                 </IonInput>
                 <IonButton onClick={doLogin} expand="full">Login</IonButton>
+                <div style={{ textAlign: 'center', marginTop: '15px', padding: '10px', border: '1px solid #ccc', borderRadius: '5px', background: '#f9f9f9' }}>
+                  <p style={{ margin: '0', fontSize: '14px', color: '#666' }}>Don't have an account? Sign up or register here:</p>
+                  <IonButton 
+                    onClick={goToRegister} 
+                    expand="full" 
+                    fill="outline" 
+                    style={{ marginTop: '10px', transition: '0.3s', cursor: 'pointer' }}
+                    onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#ddd'}
+                    onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
+                  >
+                    Register
+                  </IonButton>
+                </div>
               </IonCol>
             </IonRow>
           </IonGrid>
-
+          
         </div>
       </IonContent>
     </IonPage>
