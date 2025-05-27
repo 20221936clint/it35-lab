@@ -27,13 +27,13 @@ const FeedContainer = () => {
   useEffect(() => {
     const fetchUser = async () => {
       const { data: authData } = await supabase.auth.getUser();
-      if (authData?.user?.email?.endsWith('@nbsc.edu.ph')) {
-        setUser(authData.user);
-        const { data: userData, error } = await supabase
-          .from('users')
-          .select('user_id, username, user_avatar_url')
-          .eq('user_email', authData.user.email)
-          .single();
+      if (authData?.user) {
+  setUser(authData.user);
+  const { data: userData, error } = await supabase
+    .from('users')
+    .select('user_id, username, user_avatar_url')
+    .eq('user_email', authData.user.email)
+    .single();
         if (!error && userData) {
           setUser({ ...authData.user, id: userData.user_id });
           setUsername(userData.username);
